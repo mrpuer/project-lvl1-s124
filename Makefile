@@ -1,5 +1,5 @@
 lint:
-	npm run eslint
+	eslint src/bin/brain-games.js
 publish:
 	npm publish
 install:

@@ -17,7 +17,8 @@
     "eslint": "*",
     "eslint-config-airbnb-base": "*",
     "eslint-plugin-import": "*",
-    "babel-eslint": "*"
+    "babel-eslint": "*",
+    "eslint-plugin-jest": "*"
   },
   "dependencies": {
     "readline-sync": "*"

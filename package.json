@@ -18,6 +18,7 @@
     "eslint-config-airbnb-base": "*",
     "eslint-plugin-import": "*",
     "babel-eslint": "*",
+    "eslint-plugin-flowtype": "*",
     "eslint-plugin-jest": "*"
   },
   "dependencies": {

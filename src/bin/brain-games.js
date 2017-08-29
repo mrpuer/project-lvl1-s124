@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import userName from '../';
+import getName from '../';
 
-console.log(`Hello, ${userName}!`);
+console.log(`Hello, ${getName}!`);

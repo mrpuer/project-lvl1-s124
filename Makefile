@@ -1,5 +1,5 @@
 lint:
-	npm run eslint .
+	npm run eslint src/.
 publish:
 	npm publish
 install:

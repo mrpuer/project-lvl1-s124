@@ -11,3 +11,11 @@ export const makeRandNum = (min, max) => {
 };
 export const getNameFunc = () => readlineSync.question('May I have your name? ');
 export const askUser = () => readlineSync.question('Your answer: ');
+export const funcFinish = (count, someGamerName, someCheckAnsw, someUserAnsw) => {
+  if (count === 1) {
+    return printCongrat(someGamerName);
+  } else if (someCheckAnsw !== someUserAnsw) {
+    return printError(someUserAnsw, someCheckAnsw);
+  }
+  return correctMsg();
+};

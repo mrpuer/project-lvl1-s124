@@ -1,4 +1,4 @@
-import { makeRandNum, askUser, correctMsg, sendQuest, printCongrat, printError } from '../subFunc';
+import { makeRandNum, askUser, sendQuest, funcFinish } from '../subFunc';
 
 const gcdGame = (i, gamerName) => {
   const curDigit1 = makeRandNum(1, 99);
@@ -24,12 +24,9 @@ const gcdGame = (i, gamerName) => {
   };
 
   const checkAnsw = getGcd(curDigit1, curDigit2);
-  if (i === 1) {
-    return printCongrat(gamerName);
-  } else if (checkAnsw === userAnsw) {
-    correctMsg();
-    return gcdGame(i - 1, gamerName);
+  funcFinish(i, gamerName, checkAnsw, userAnsw);
+  if ((i !== 1) && (checkAnsw === userAnsw)) {
+    gcdGame(i - 1, gamerName);
   }
-  return printError(userAnsw, checkAnsw);
 };
 export default gcdGame;

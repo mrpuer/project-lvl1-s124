@@ -1,7 +1,6 @@
 import { makeRandNum, askUser, correctMsg, sendQuest, printCongrat, printError } from '../subFunc';
 
 const calcGame = (i, gamerName) => {
-  let count = i;
   const curDigit1 = makeRandNum(1, 99);
   const curDigit2 = makeRandNum(1, 99);
   const signs = ['+', '-', '*'];
@@ -21,8 +20,7 @@ const calcGame = (i, gamerName) => {
     return printCongrat(gamerName);
   } else if (checkAnsw === userAnsw) {
     correctMsg();
-    count -= 1;
-    return calcGame(count, gamerName);
+    return calcGame(i - 1, gamerName);
   }
   return printError(userAnsw, checkAnsw);
 };

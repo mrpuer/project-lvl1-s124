@@ -1,6 +1,24 @@
-import readlineSync from 'readline-sync';
+import evenGame from './games/even';
+import calcGame from './games/calc';
+import { getNameFunc, welcomeMsg } from './subFunc';
 
-console.log('Welcome to the Brain Games!\n');
-
-const getName = readlineSync.question('May I have your name? ');
-export default getName;
+const makeGame = (gameName, rules) => {
+  welcomeMsg();
+  if (gameName === 'brain') {
+    const getName = getNameFunc();
+    console.log(`Hello, ${getName}!`);
+  }
+  if (gameName === 'even') {
+    console.log(rules);
+    const getName = getNameFunc();
+    console.log(`Hello, ${getName}!`);
+    evenGame(3, getName);
+  }
+  if (gameName === 'calc') {
+    console.log(rules);
+    const getName = getNameFunc();
+    console.log(`Hello, ${getName}!`);
+    calcGame(3, getName);
+  }
+};
+export default makeGame;

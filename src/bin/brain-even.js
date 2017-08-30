@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { makeEvenGame } from '../even';
+import makeGame from '../';
 
-makeEvenGame(3);
+makeGame('even', 'Answer "yes" if number even otherwise answer "no".\n');

@@ -6,7 +6,7 @@ export const sendQuest = sysValue => console.log(`Question: ${sysValue}`);
 export const printCongrat = gamerName => console.log(`Congratulations, ${gamerName}`);
 export const printError = (userAnsw, checkAnsw) => console.log(`${userAnsw} is wrong answer ;(. Correct answer was ${checkAnsw}.`);
 export const makeRandNum = (min, max) => {
-  const rand = Math.floor((min + Math.random()) * ((max + 1) - min));
+  const rand = Math.floor(min + (Math.random() * ((max + 1) - min)));
   return rand;
 };
 export const getNameFunc = () => readlineSync.question('May I have your name? ');

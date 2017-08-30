@@ -1,31 +1,29 @@
-import evenGame from './games/even';
-import calcGame from './games/calc';
-import gcdGame from './games/gcd';
-import { getNameFunc, welcomeMsg } from './subFunc';
+import readlineSync from 'readline-sync';
 
-const makeGame = (gameName, rules) => {
+export const welcomeMsg = () => console.log('Welcome to the Brain Games!\n');
+export const correctMsg = () => console.log('Correct!');
+export const sendQuest = sysValue => console.log(`Question: ${sysValue}`);
+export const printHello = toUser => console.log(`Hello, ${toUser}!`);
+export const printCongrat = gamerName => console.log(`Congratulations, ${gamerName}`);
+export const printError = (userAnsw, checkAnsw) => console.log(`${userAnsw} is wrong answer ;(. Correct answer was ${checkAnsw}.`);
+export const makeRandNum = (min, max) => {
+  const rand = Math.floor(min + (Math.random() * ((max + 1) - min)));
+  return rand;
+};
+export const getNameFunc = () => readlineSync.question('May I have your name? ');
+export const askUser = () => readlineSync.question('Your answer: ');
+export const endGame = (someCount, someGetName, someCheckAnsw, someUserAnsw) => {
+  if (someCount === 1) {
+    return printCongrat(someGetName);
+  } else if (someCheckAnsw !== someUserAnsw) {
+    return printError(someUserAnsw, someCheckAnsw);
+  }
+  return correctMsg();
+};
+
+export const startGame = (getRules) => {
   welcomeMsg();
-  if (gameName === 'brain') {
-    const getName = getNameFunc();
-    console.log(`Hello, ${getName}!`);
-  }
-  if (gameName === 'even') {
-    console.log(rules);
-    const getName = getNameFunc();
-    console.log(`Hello, ${getName}!`);
-    evenGame(3, getName);
-  }
-  if (gameName === 'calc') {
-    console.log(rules);
-    const getName = getNameFunc();
-    console.log(`Hello, ${getName}!`);
-    calcGame(3, getName);
-  }
-  if (gameName === 'gcd') {
-    console.log(rules);
-    const getName = getNameFunc();
-    console.log(`Hello, ${getName}!`);
-    gcdGame(3, getName);
+  if (getRules) {
+    console.log(getRules);
   }
 };
-export default makeGame;

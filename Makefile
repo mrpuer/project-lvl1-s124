@@ -4,6 +4,8 @@ publish:
 	npm publish
 install:
 	npm install
+start-b:
+	npm run babel-node -- src/bin/brain-balance.js
 start-n:
 	npm run babel-node -- src/bin/brain-gcd.js
 start-c:

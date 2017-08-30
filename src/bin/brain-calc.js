@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import makeGame from '../';
+import calcGame from '../games/calc';
 
-makeGame('calc', 'What is the result of the expression?\n');
+calcGame('What is the result of the expression?\n', 3);

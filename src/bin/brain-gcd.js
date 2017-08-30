@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import makeGame from '../';
+import gcdGame from '../games/gcd';
 
-makeGame('gcd', 'Find the greatest common divisor of given numbers.\n');
+gcdGame('Find the greatest common divisor of given numbers.\n', 3);

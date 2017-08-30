@@ -1,6 +1,6 @@
 {
   "name": "puer-brain-game",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Brain Game First Project",
   "main": "index.js",
   "scripts": {

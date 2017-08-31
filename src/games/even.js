@@ -1,20 +1,12 @@
-import { startGame, endGame, makeRandNum, askUser, sendQuest, getNameFunc, printHello } from '../';
+import makeRandNum from '../utils';
+import { makeGame } from '../';
 
-const evenGame = (rules, i) => {
-  startGame(rules);
-  const getName = getNameFunc();
-  printHello(getName);
-  const gameBody = (count) => {
-    const curDigit = makeRandNum(1, 99);
-    sendQuest(curDigit);
-    const userAnsw = askUser();
-    const checkAnsw = curDigit % 2 === 0 ? 'yes' : 'no';
-    endGame(count, getName, checkAnsw, userAnsw);
-    if ((count !== 1) && (checkAnsw === userAnsw)) {
-      gameBody(count - 1);
-    }
-  };
 
-  return gameBody(i);
+const evenGame = (i) => {
+  const rules = 'Answer "yes" if number even otherwise answer "no".\n';
+  const makeData = () => makeRandNum(0, 99);
+  const makeQuestion = (num) => num;
+  const makeAnswer = (item) => item % 2 === 0 ? 'yes' : 'no';
+  makeGame(rules, makeData, makeQuestion, makeAnswer, i);
 };
 export default evenGame;

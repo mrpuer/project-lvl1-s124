@@ -1,8 +1,10 @@
-import { startGame, getNameFunc, printHello } from '../';
+import { makeGame } from '../';
 
-const brainGames = () => {
-  startGame();
-  const getName = getNameFunc();
-  printHello(getName);
+const brainGames = (i) => {
+  const rules = '';
+  const makeData = () => {};
+  const makeQuestion = (arr) => {};
+  const makeAnswer = (arr) => {};
+  makeGame(rules, makeData, makeQuestion, makeAnswer, i);
 };
 export default brainGames;

@@ -1,39 +1,35 @@
-import { startGame, endGame, makeRandNum, askUser, sendQuest, getNameFunc, printHello } from '../';
+import makeRandNum from '../utils';
+import { makeGame } from '../';
 
-const gcdGame = (rules, i) => {
-  startGame(rules);
-  const getName = getNameFunc();
-  printHello(getName);
-  const gameBody = (count) => {
+const gcdGame = (i) => {
+  const rules = 'Find the greatest common divisor of given numbers.';
+  const makeData = () => {
     const curDigit1 = makeRandNum(1, 99);
     const curDigit2 = makeRandNum(1, 99);
-    const makeQuest = `${curDigit1} ${curDigit2}`;
-    sendQuest(makeQuest);
-    const userAnsw = +askUser();
-    const getGcd = (dig1, dig2) => {
-      if (dig1 === dig2) {
-        return dig1;
+    return [curDigit1, curDigit2];
+  };
+  const makeQuestion = (arr) => {
+    return `${arr[0]} ${arr[1]}`;
+  };
+  const makeAnswer = (arr) => {
+    const dig1 = arr[0];
+    const dig2 = arr[1];
+    if (dig1 === dig2) {
+      return dig1;
+    }
+    const biggest = dig2 > dig1 ? dig2 : dig1;
+    const lowest = dig2 > dig1 ? dig1 : dig2;
+    const iter = (newLow) => {
+      if ((biggest % newLow === 0) && (lowest % newLow === 0)) {
+        return newLow;
       }
-      const biggest = dig2 > dig1 ? dig2 : dig1;
-      const lowest = dig2 > dig1 ? dig1 : dig2;
-      const iter = (newLow) => {
-        if ((biggest % newLow === 0) && (lowest % newLow === 0)) {
-          return newLow;
-        }
 
-        return iter(newLow - 1);
-      };
-
-      return iter(biggest, lowest);
+      return iter(newLow - 1);
     };
 
-    const checkAnsw = getGcd(curDigit1, curDigit2);
-    endGame(count, getName, checkAnsw, userAnsw);
-    if ((count !== 1) && (checkAnsw === userAnsw)) {
-      gameBody(count - 1);
-    }
+    return iter(lowest);
   };
 
-  return gameBody(i);
+  makeGame(rules, makeData, makeQuestion, makeAnswer, i);
 };
 export default gcdGame;

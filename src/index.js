@@ -24,23 +24,26 @@ const welcomeGame = (getRules) => {
   }
 };
 
-export const makeGame = (gameRules, gameData, gameQuestion, gameAnswer, i) => {
+const makeGame = (gameRules, gameData, gameQuestion, gameAnswer, i) => {
   welcomeGame(gameRules);
   const getName = askName();
   printHello(getName);
-  if (i !== 0 ) {
+  if (i !== 0) {
     const startGame = (getName2, count) => {
       const curretData = gameData();
       const currentQuestion = gameQuestion(curretData);
       const currentAnswer = gameAnswer(curretData);
       printQuestion(currentQuestion);
-      const userAnswer = (typeof currentAnswer === 'number') ? +askAnswer() : askAnswer()
+      const userAnswer = (typeof currentAnswer === 'number') ? +askAnswer() : askAnswer();
       endGame(count, getName2, currentAnswer, userAnswer);
       if ((count !== 1) && (currentAnswer === userAnswer)) {
         return startGame(getName2, count - 1);
       }
+      return false;
     };
 
     return startGame(getName, i);
   }
-}
+  return false;
+};
+export default makeGame;

@@ -1,5 +1,5 @@
 import makeRandNum from '../utils';
-import { makeGame } from '../';
+import makeGame from '../';
 
 const gcdGame = (i) => {
   const rules = 'Find the greatest common divisor of given numbers.';
@@ -8,9 +8,7 @@ const gcdGame = (i) => {
     const curDigit2 = makeRandNum(1, 99);
     return [curDigit1, curDigit2];
   };
-  const makeQuestion = (arr) => {
-    return `${arr[0]} ${arr[1]}`;
-  };
+  const makeQuestion = arr => `${arr[0]} ${arr[1]}`;
   const makeAnswer = (arr) => {
     const dig1 = arr[0];
     const dig2 = arr[1];

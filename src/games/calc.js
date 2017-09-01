@@ -3,18 +3,18 @@ import makeGame from '../';
 
 const calcGame = (i) => {
   const rules = 'What is the result of the expression?';
-  const makeQuestion = () => {
-    const currrentDigit1 = makeRandNum(0, 99);
-    const currrentDigit2 = makeRandNum(0, 99);
+  const makeData = () => {
+    const curDigit1 = makeRandNum(0, 99);
+    const curDigit2 = makeRandNum(0, 99);
     const signs = ['+', '-', '*'];
-    const currrentSign = signs[makeRandNum(0, 2)];
-    return `${currrentDigit1} ${currrentSign} ${currrentDigit2}`;
+    const curSign = signs[makeRandNum(0, 2)];
+    return [curDigit1, curDigit2, curSign];
   };
-  const makeAnswer = (str) => {
-    const arr = str.split(' ');
+  const makeQuestion = arr => `${arr[0]} ${arr[2]} ${arr[1]}`;
+  const makeAnswer = (arr) => {
     const num1 = arr[0];
-    const num2 = arr[2];
-    const sign = arr[1];
+    const num2 = arr[1];
+    const sign = arr[2];
     if (sign === '+') {
       return num1 + num2;
     }
@@ -24,6 +24,6 @@ const calcGame = (i) => {
 
     return num1 * num2;
   };
-  makeGame(rules, makeQuestion, makeAnswer, i);
+  makeGame(rules, makeData, makeQuestion, makeAnswer, i);
 };
 export default calcGame;

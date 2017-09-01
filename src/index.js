@@ -24,15 +24,14 @@ const welcomeGame = (getRules) => {
   }
 };
 
-const makeGame = (gameRules, gameData, gameQuestion, gameAnswer, i) => {
+const makeGame = (gameRules, gameQuestion, gameAnswer, i) => {
   welcomeGame(gameRules);
   const getName = askName();
   printHello(getName);
   if (i !== 0) {
     const startGame = (getName2, count) => {
-      const curretData = gameData();
-      const currentQuestion = gameQuestion(curretData);
-      const currentAnswer = gameAnswer(curretData);
+      const currentQuestion = gameQuestion();
+      const currentAnswer = gameAnswer(currentQuestion);
       printQuestion(currentQuestion);
       const userAnswer = (typeof currentAnswer === 'number') ? +askAnswer() : askAnswer();
       endGame(count, getName2, currentAnswer, userAnswer);

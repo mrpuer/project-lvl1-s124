@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { car, cdr } from 'hexlet-pairs';
 
 const welcomeMsg = () => console.log('Welcome to the Brain Games!\n');
 const correctMsg = () => console.log('Correct!');
@@ -8,15 +9,6 @@ const printCongrat = gamerName => console.log(`Congratulations, ${gamerName}`);
 const printError = (userAnsw, checkAnsw) => console.log(`${userAnsw} is wrong answer ;(. Correct answer was ${checkAnsw}.`);
 const askName = () => readlineSync.question('May I have your name? ');
 const askAnswer = () => readlineSync.question('Your answer: ');
-const endGame = (someCount, someGetName, someCheckAnswer, someUserAnswer) => {
-  if (someCount === 1) {
-    return printCongrat(someGetName);
-  } else if (someCheckAnswer !== someUserAnswer) {
-    return printError(someUserAnswer, someCheckAnswer);
-  }
-  return correctMsg();
-};
-
 const welcomeGame = (getRules) => {
   welcomeMsg();
   if (getRules) {
@@ -24,26 +16,28 @@ const welcomeGame = (getRules) => {
   }
 };
 
-const makeGame = (gameRules, gameData, gameQuestion, gameAnswer, i) => {
+const makeGame = (gameRules, gameData, i) => {
   welcomeGame(gameRules);
   const getName = askName();
   printHello(getName);
-  if (i !== 0) {
-    const startGame = (getName2, count) => {
-      const curretData = gameData();
-      const currentQuestion = gameQuestion(curretData);
-      const currentAnswer = gameAnswer(curretData);
-      printQuestion(currentQuestion);
-      const userAnswer = (typeof currentAnswer === 'number') ? +askAnswer() : askAnswer();
-      endGame(count, getName2, currentAnswer, userAnswer);
-      if ((count !== 1) && (currentAnswer === userAnswer)) {
-        return startGame(getName2, count - 1);
-      }
-      return false;
-    };
-
-    return startGame(getName, i);
+  if (i === 0) {
+    return '';
   }
-  return false;
+  const startGame = (getName2, count) => {
+    const currentData = gameData();
+    const currentQuestion = car(currentData);
+    const currentAnswer = cdr(currentData);
+    printQuestion(currentQuestion);
+    const userAnswer = (typeof currentAnswer === 'number') ? +askAnswer() : askAnswer();
+    if (currentAnswer !== userAnswer) {
+      return printError(userAnswer, currentAnswer);
+    }
+    correctMsg();
+    if (count === 1) {
+      return printCongrat(getName2);
+    }
+    return startGame(getName, count - 1);
+  };
+  return startGame(getName, i);
 };
 export default makeGame;

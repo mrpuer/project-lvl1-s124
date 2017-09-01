@@ -3,8 +3,6 @@ import makeGame from '../';
 const brainGames = (i) => {
   const rules = '';
   const makeData = () => {};
-  const makeQuestion = () => {};
-  const makeAnswer = () => {};
-  makeGame(rules, makeData, makeQuestion, makeAnswer, i);
+  makeGame(rules, makeData, i);
 };
 export default brainGames;

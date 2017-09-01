@@ -3,13 +3,13 @@ import makeGame from '../';
 
 const gcdGame = (i) => {
   const rules = 'Find the greatest common divisor of given numbers.';
-  const makeData = () => {
+  const makeQuestion = () => {
     const curDigit1 = makeRandNum(1, 99);
     const curDigit2 = makeRandNum(1, 99);
-    return [curDigit1, curDigit2];
+    return `${curDigit1} ${curDigit2}`;
   };
-  const makeQuestion = arr => `${arr[0]} ${arr[1]}`;
-  const makeAnswer = (arr) => {
+  const makeAnswer = (str) => {
+    const arr = str.split(' ');
     const dig1 = arr[0];
     const dig2 = arr[1];
     if (dig1 === dig2) {
@@ -28,6 +28,6 @@ const gcdGame = (i) => {
     return iter(lowest);
   };
 
-  makeGame(rules, makeData, makeQuestion, makeAnswer, i);
+  makeGame(rules, makeQuestion, makeAnswer, i);
 };
 export default gcdGame;

@@ -1,12 +1,15 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
-const printWelcome = () => console.log('Welcome to the Brain Games!\n');
+const printWelcome = () => console.log('Welcome to the Brain Games!');
 const printCorrect = () => console.log('Correct!');
 const printQuestion = sysValue => console.log(`Question: ${sysValue}`);
 const printHello = toUser => console.log(`Hello, ${toUser}!`);
 const printWin = gamerName => console.log(`Congratulations, ${gamerName}`);
-const printError = (userAnsw, checkAnsw) => console.log(`${userAnsw} is wrong answer ;(. Correct answer was ${checkAnsw}.`);
+const printError = (userAnsw, checkAnsw, person) => {
+  console.log(`${userAnsw} is wrong answer ;(. Correct answer was ${checkAnsw}.`);
+  console.log(`Let's try again, ${person}!`);
+};
 const askName = () => readlineSync.question('May I have your name? ');
 const askAnswer = (item) => {
   const answer = readlineSync.question('Your answer: ');
@@ -14,9 +17,7 @@ const askAnswer = (item) => {
 };
 const welcomeGame = (getRules) => {
   printWelcome();
-  if (getRules) {
-    console.log(getRules);
-  }
+  console.log(getRules);
 };
 
 const makeGame = (gameRules, gameData) => {
@@ -33,7 +34,7 @@ const makeGame = (gameRules, gameData) => {
     printQuestion(currentQuestion);
     const userAnswer = askAnswer(currentAnswer);
     if (currentAnswer !== userAnswer) {
-      return printError(userAnswer, currentAnswer);
+      return printError(userAnswer, currentAnswer, getName);
     }
     printCorrect();
     if (count === 1) {

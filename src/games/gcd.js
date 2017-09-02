@@ -8,12 +8,12 @@ const gcdGame = () => {
     const curDigit1 = makeRandNum(1, 99);
     const curDigit2 = makeRandNum(1, 99);
     const makeQuestion = `${curDigit1} ${curDigit2}`;
-    const answer = () => {
-      if (curDigit1 === curDigit2) {
-        return curDigit1;
+    const answer = (num1, num2) => {
+      if (num1 === num2) {
+        return num1;
       }
-      const biggest = curDigit2 > curDigit1 ? curDigit2 : curDigit1;
-      const lowest = curDigit2 > curDigit1 ? curDigit1 : curDigit2;
+      const biggest = num2 > num1 ? num2 : num1;
+      const lowest = num2 > num1 ? num1 : num2;
       const iter = (newLow) => {
         if ((biggest % newLow === 0) && (lowest % newLow === 0)) {
           return newLow;
@@ -23,7 +23,7 @@ const gcdGame = () => {
       };
       return iter(lowest);
     };
-    const makeAnswer = answer();
+    const makeAnswer = answer(curDigit1, curDigit2);
     return cons(makeQuestion, makeAnswer);
   };
 

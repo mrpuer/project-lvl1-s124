@@ -12,19 +12,8 @@ const gcdGame = () => {
   const makeAnswer = (pair) => {
     const num1 = car(pair);
     const num2 = cdr(pair);
-    if (num1 === num2) {
-      return num1;
-    }
-    const biggest = num2 > num1 ? num2 : num1;
-    const lowest = num2 > num1 ? num1 : num2;
-    const iter = (newLow) => {
-      if ((biggest % newLow === 0) && (lowest % newLow === 0)) {
-        return newLow;
-      }
-
-      return iter(newLow - 1);
-    };
-    return iter(lowest);
+    const result = num1 !== 0 ? makeAnswer(cons(num2 % num1, num1)) : num2;
+    return result;
   };
   const makeData = () => {
     const getQuestion = makeQuestion();

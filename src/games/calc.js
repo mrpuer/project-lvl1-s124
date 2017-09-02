@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import makeRandNum from '../utils';
 import makeGame from '../';
 
-const calcGame = (i) => {
+const calcGame = () => {
   const rules = 'What is the result of the expression?';
   const makeData = () => {
     const currrentDigit1 = makeRandNum(0, 99);
@@ -23,6 +23,6 @@ const calcGame = (i) => {
     const makeAnswer = answer();
     return cons(makeQuestion, makeAnswer);
   };
-  return makeGame(rules, makeData, i);
+  return makeGame(rules, makeData);
 };
 export default calcGame;

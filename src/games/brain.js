@@ -1,8 +1,8 @@
 import makeGame from '../';
 
-const brainGames = (i) => {
+const brainGames = () => {
   const rules = '';
   const makeData = () => {};
-  makeGame(rules, makeData, i);
+  makeGame(rules, makeData);
 };
 export default brainGames;

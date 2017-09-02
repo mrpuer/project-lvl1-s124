@@ -1,33 +1,32 @@
+import { cons } from 'hexlet-pairs';
 import makeRandNum from '../utils';
 import makeGame from '../';
 
-const gcdGame = (i) => {
+const gcdGame = () => {
   const rules = 'Find the greatest common divisor of given numbers.';
-  const makeQuestion = () => {
+  const makeData = () => {
     const curDigit1 = makeRandNum(1, 99);
     const curDigit2 = makeRandNum(1, 99);
-    return `${curDigit1} ${curDigit2}`;
-  };
-  const makeAnswer = (str) => {
-    const arr = str.split(' ');
-    const dig1 = arr[0];
-    const dig2 = arr[1];
-    if (dig1 === dig2) {
-      return dig1;
-    }
-    const biggest = dig2 > dig1 ? dig2 : dig1;
-    const lowest = dig2 > dig1 ? dig1 : dig2;
-    const iter = (newLow) => {
-      if ((biggest % newLow === 0) && (lowest % newLow === 0)) {
-        return newLow;
+    const makeQuestion = `${curDigit1} ${curDigit2}`;
+    const answer = () => {
+      if (curDigit1 === curDigit2) {
+        return curDigit1;
       }
+      const biggest = curDigit2 > curDigit1 ? curDigit2 : curDigit1;
+      const lowest = curDigit2 > curDigit1 ? curDigit1 : curDigit2;
+      const iter = (newLow) => {
+        if ((biggest % newLow === 0) && (lowest % newLow === 0)) {
+          return newLow;
+        }
 
-      return iter(newLow - 1);
+        return iter(newLow - 1);
+      };
+      return iter(lowest);
     };
-
-    return iter(lowest);
+    const makeAnswer = answer();
+    return cons(makeQuestion, makeAnswer);
   };
 
-  makeGame(rules, makeQuestion, makeAnswer, i);
+  return makeGame(rules, makeData);
 };
 export default gcdGame;

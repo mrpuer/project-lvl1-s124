@@ -20,7 +20,7 @@ const calcGame = () => {
 
       return currrentDigit1 * currrentDigit2;
     };
-    const makeAnswer = answer();
+    const makeAnswer = `${answer()}`;
     return cons(makeQuestion, makeAnswer);
   };
   return makeGame(rules, makeData);

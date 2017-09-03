@@ -7,10 +7,9 @@ const balanceGame = () => {
   const makeQuestion = () => makeRandNum(100, 9999);
   const makeAnswer = question => findBalance(question);
   const makeData = () => {
-    const getQuestion = makeQuestion();
-    const questionToString = `${getQuestion}`;
-    const getAnswer = makeAnswer(questionToString);
-    return cons(questionToString, getAnswer);
+    const makeCurrentQuestion = `${makeQuestion()}`;
+    const makeCurrentAnswer = makeAnswer(makeCurrentQuestion);
+    return cons(makeCurrentQuestion, makeCurrentAnswer);
   };
   return makeGame(rules, makeData);
 };

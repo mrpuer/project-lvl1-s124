@@ -15,10 +15,10 @@ const gcdGame = () => {
     return findGCD(getNum1, getNum2);
   };
   const makeData = () => {
-    const getQuestion = makeQuestion();
-    const getAnswer = makeAnswer(getQuestion);
-    const questionToString = `${car(getQuestion)} ${cdr(getQuestion)}`;
-    return cons(questionToString, getAnswer);
+    const makeCurrentQuestion = makeQuestion();
+    const makeCurrentAnswer = `${makeAnswer(makeCurrentQuestion)}`;
+    const makeStringQuestion = `${car(makeCurrentQuestion)} ${cdr(makeCurrentQuestion)}`;
+    return cons(makeStringQuestion, makeCurrentAnswer);
   };
   return makeGame(rules, makeData);
 };

@@ -1,3 +1,5 @@
+import { cons } from 'hexlet-pairs';
+
 export const makeRandNum = (min, max) => {
   const rand = Math.floor(min + (Math.random() * ((max + 1) - min)));
   return rand;
@@ -6,9 +8,9 @@ export const findGCD = (num1, num2) => {
   const result = num1 !== 0 ? findGCD(num2 % num1, num1) : num2;
   return result;
 };
-export const findBalance = (str) => {
-  const letsStart = (newStr) => {
-    const arr = newStr.split('');
+export const findBalance = (int) => {
+  const letsStart = (newInt) => {
+    const arr = `${newInt}`.split('');
     arr.sort();
     const iter = (newNum, i) => {
       const currentNum = newNum;
@@ -31,7 +33,7 @@ export const findBalance = (str) => {
     };
     return iter(arr, 1);
   };
-  return letsStart(str).join('');
+  return letsStart(int).join('');
 };
 export const makeProgression = () => {
   const step = makeRandNum(2, 9);
@@ -44,5 +46,5 @@ export const makeProgression = () => {
     return iter(acc, i + 1);
   };
 
-  return iter(startArray, 1);
+  return cons(iter(startArray, 1), step);
 };

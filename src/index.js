@@ -11,9 +11,9 @@ const printError = (userAnsw, checkAnsw, person) => {
   console.log(`Let's try again, ${person}!`);
 };
 const askName = () => readlineSync.question('May I have your name? ');
-const askAnswer = (item) => {
+const askAnswer = () => {
   const answer = readlineSync.question('Your answer: ');
-  return (typeof item === 'number') ? +answer : answer;
+  return answer;
 };
 const welcomeGame = (getRules) => {
   printWelcome();
@@ -32,7 +32,7 @@ const makeGame = (gameRules, gameData) => {
     const currentQuestion = car(currentData);
     const currentAnswer = cdr(currentData);
     printQuestion(currentQuestion);
-    const userAnswer = askAnswer(currentAnswer);
+    const userAnswer = askAnswer();
     if (currentAnswer !== userAnswer) {
       return printError(userAnswer, currentAnswer, getName);
     }

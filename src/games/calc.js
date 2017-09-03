@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import makeRandNum from '../utils';
+import { makeRandNum } from '../utils';
 import makeGame from '../';
 
 const calcGame = () => {

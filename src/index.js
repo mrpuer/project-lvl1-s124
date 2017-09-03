@@ -21,7 +21,7 @@ const welcomeGame = (getRules) => {
 };
 
 const makeGame = (gameRules, gameData) => {
-  welcomeGame(gameRules);
+  welcomeGame(`${gameRules}\n`);
   const getName = askName();
   printHello(getName);
   if (gameRules === '') {

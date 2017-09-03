@@ -33,3 +33,16 @@ export const findBalance = (str) => {
   };
   return letsStart(str).join('');
 };
+export const makeProgression = () => {
+  const step = makeRandNum(2, 9);
+  const startArray = [makeRandNum(10, 99)];
+  const iter = (acc, i) => {
+    if (i === 10) {
+      return acc;
+    }
+    acc.push(acc[i - 1] + step);
+    return iter(acc, i + 1);
+  };
+
+  return iter(startArray, 1);
+};

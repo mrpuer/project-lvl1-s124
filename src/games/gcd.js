@@ -1,5 +1,5 @@
 import { cons, car, cdr } from 'hexlet-pairs';
-import makeRandNum from '../utils';
+import { makeRandNum, findGCD } from '../utils';
 import makeGame from '../';
 
 const gcdGame = () => {
@@ -9,13 +9,14 @@ const gcdGame = () => {
     const curDigit2 = makeRandNum(1, 99);
     return cons(curDigit1, curDigit2);
   };
-  const makeAnswer = (num1, num2) => {
-    const result = num1 !== 0 ? makeAnswer(cons(num2 % num1, num1)) : num2;
-    return result;
+  const makeAnswer = (pair) => {
+    const getNum1 = car(pair);
+    const getNum2 = cdr(pair);
+    return findGCD(getNum1, getNum2);
   };
   const makeData = () => {
     const getQuestion = makeQuestion();
-    const getAnswer = makeAnswer(car(getQuestion), cdr(getQuestion));
+    const getAnswer = makeAnswer(getQuestion);
     const questionToString = `${car(getQuestion)} ${cdr(getQuestion)}`;
     return cons(questionToString, getAnswer);
   };

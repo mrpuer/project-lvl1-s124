@@ -48,3 +48,12 @@ export const makeProgression = () => {
 
   return cons(iter(startArray, 1), step);
 };
+export const isPrime = (int, i) => {
+  if (i === int) {
+    return true;
+  }
+  if (int % i === 0) {
+    return false;
+  }
+  return isPrime(int, i + 1);
+};

@@ -3,7 +3,7 @@ import { makeRandNum } from '../utils';
 import makeGame from '../';
 
 const evenGame = () => {
-  const rules = 'Answer "yes" if number even otherwise answer "no".\n';
+  const rules = 'Answer "yes" if number even otherwise answer "no".';
   const makeData = () => {
     const makeQuestion = makeRandNum(0, 99);
     const answer = item => (item % 2 === 0 ? 'yes' : 'no');

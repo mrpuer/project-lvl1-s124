@@ -4,6 +4,8 @@ publish:
 	npm publish
 install:
 	npm install
+start-pe:
+	npm run babel-node -- src/bin/brain-prime.js
 start-p:
 	npm run babel-node -- src/bin/brain-progression.js
 start-b:

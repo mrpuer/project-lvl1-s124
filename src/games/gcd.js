@@ -9,15 +9,13 @@ const gcdGame = () => {
     const curDigit2 = makeRandNum(1, 99);
     return cons(curDigit1, curDigit2);
   };
-  const makeAnswer = (pair) => {
-    const num1 = car(pair);
-    const num2 = cdr(pair);
+  const makeAnswer = (num1, num2) => {
     const result = num1 !== 0 ? makeAnswer(cons(num2 % num1, num1)) : num2;
     return result;
   };
   const makeData = () => {
     const getQuestion = makeQuestion();
-    const getAnswer = makeAnswer(getQuestion);
+    const getAnswer = makeAnswer(car(getQuestion), cdr(getQuestion));
     const questionToString = `${car(getQuestion)} ${cdr(getQuestion)}`;
     return cons(questionToString, getAnswer);
   };

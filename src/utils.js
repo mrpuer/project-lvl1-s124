@@ -1,5 +1,3 @@
-import { cons } from 'hexlet-pairs';
-
 export const makeRandNum = (min, max) => {
   const rand = Math.floor(min + (Math.random() * ((max + 1) - min)));
   return rand;
@@ -35,18 +33,9 @@ export const findBalance = (int) => {
   };
   return letsStart(int).join('');
 };
-export const makeProgression = () => {
-  const step = makeRandNum(2, 9);
-  const startArray = [makeRandNum(10, 99)];
-  const iter = (acc, i) => {
-    if (i === 10) {
-      return acc;
-    }
-    acc.push(acc[i - 1] + step);
-    return iter(acc, i + 1);
-  };
-
-  return cons(iter(startArray, 1), step);
+export const isProgressionNumber = (start, index, currentStep) => {
+  const result = start + (index * currentStep);
+  return result;
 };
 export const isPrime = (int, i) => {
   if (i === int) {

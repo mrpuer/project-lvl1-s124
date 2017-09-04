@@ -6,7 +6,7 @@ const primeGame = () => {
   const rules = 'Answer "yes" if number prime otherwise answer "no".';
   const makeData = () => {
     const question = makeRandNum(1, 99);
-    const answer = isPrime(question, 2) ? 'yes' : 'no';
+    const answer = isPrime(question) ? 'yes' : 'no';
     return cons(question, answer);
   };
   return makeGame(rules, makeData);

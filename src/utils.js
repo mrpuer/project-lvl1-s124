@@ -37,12 +37,15 @@ export const isProgressionNumber = (start, index, currentStep) => {
   const result = start + (index * currentStep);
   return result;
 };
-export const isPrime = (int, i) => {
-  if (i === int) {
-    return true;
-  }
-  if (int % i === 0) {
-    return false;
-  }
-  return isPrime(int, i + 1);
+export const isPrime = (int) => {
+  const iter = (i) => {
+    if (i === int) {
+      return true;
+    }
+    if (int % i === 0) {
+      return false;
+    }
+    return iter(i + 1);
+  };
+  return iter(2);
 };

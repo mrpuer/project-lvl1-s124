@@ -16,7 +16,7 @@ const gcdGame = () => {
   };
   const makeData = () => {
     const makeCurrentQuestion = makeQuestion();
-    const makeCurrentAnswer = `${makeAnswer(makeCurrentQuestion)}`;
+    const makeCurrentAnswer = String(makeAnswer(makeCurrentQuestion));
     const makeStringQuestion = `${car(makeCurrentQuestion)} ${cdr(makeCurrentQuestion)}`;
     return cons(makeStringQuestion, makeCurrentAnswer);
   };

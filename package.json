@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "hexlet-pairs": "^1.0.5",
-    "readline-sync": "*"
+    "readline-sync": "^1.4.7"
   },
   "bin": {
     "brain-games": "dist/bin/brain-games.js",

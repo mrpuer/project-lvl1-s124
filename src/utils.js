@@ -33,10 +33,6 @@ export const findBalance = (int) => {
   };
   return letsStart(int).join('');
 };
-export const isProgressionNumber = (start, index, currentStep) => {
-  const result = start + (index * currentStep);
-  return result;
-};
 export const isPrime = (int) => {
   const iter = (i) => {
     if (i === int) {

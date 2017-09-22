@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import { isProgressionNumber, makeRandNum } from '../utils';
+import { makeRandNum } from '../utils';
 import makeGame from '../';
 
 const progressGame = () => {
@@ -19,7 +19,7 @@ const progressGame = () => {
       return `${String(currentInt)} ${makeQuestion(currentInt + step, count + 1)}`;
     };
     const question = makeQuestion(startInt, 0);
-    const answer = String(isProgressionNumber(startInt, hiddenNumberIndex, step));
+    const answer = String(startInt + (hiddenNumberIndex * step));
     return cons(question, answer);
   };
   return makeGame(rules, makeData);

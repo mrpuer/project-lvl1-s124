@@ -27,12 +27,12 @@ Installation:
 To start the game just enter a game name at console.
 
 Available games:
-+ brain-even (parity check)
-+ brain-calc (calculator)
-+ brain-gcd (greatest common divisor)
-+ brain-balance (balance the number)
-+ brain-progression (arithmetic progression)
-+ brain-prime (prime number)
++ **brain-even** (parity check)
++ **brain-calc** (calculator)
++ **brain-gcd** (greatest common divisor)
++ **brain-balance** (balance the number)
++ **brain-progression** (arithmetic progression)
++ **brain-prime** (prime number)
 
 Used components and services:
 + npm

@@ -22,7 +22,7 @@ Congratulations, John!
 ```
 Installation:
 
-`npm install puer-brain-games -g`
+`npm install -g puer-brain-game`
 
 To start the game just enter a game name at console.
 
